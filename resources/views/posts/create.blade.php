@@ -32,6 +32,18 @@
                     <label for="published_at">Published at</label>
                     <input type="text" class="form-control" id="published_at" name="published_at" value="{{ isset($post) ? $post->published_at : '' }}">
                 </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select name="category" id="category" class="form-control">
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}"
+                            @if(isset($post) && $category->id == $post->category_id)
+                                    selected
+                            @endif
+                            > {{ $category->name }}</option>
+                         @endforeach
+                    </select>
+                </div>
                 @if(isset($post))
                     <div class="form-group">
                         <img src=" {{ asset($post->image) }}" alt="Missing photo" style="width: 100%" >
@@ -41,6 +53,7 @@
                     <label for="image">Image</label>
                     <input type="file" class="form-control" id="image" name="image">
                 </div>
+
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">
