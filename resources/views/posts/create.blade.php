@@ -44,6 +44,26 @@
                          @endforeach
                     </select>
                 </div>
+                @if($tags->count() > 0)
+                <div class="form-group">
+                    <label for="tags">Tags</label>
+                    <select name="tags[]" id="tags" class="form-control" multiple>
+                            @foreach($tags as $tag)
+                                <option value="{{ $tag->id }}"
+                                    @if(isset($post))
+                                        @if($post->hasTag($tag->id))
+                                            selected
+                                        @endif
+                                    @endif
+                                >
+
+                                    {{ $tag->name }}</option>
+                            @endforeach
+                        @endif
+
+                    </select>
+
+                </div>
                 @if(isset($post))
                     <div class="form-group">
                         <img src=" {{ asset($post->image) }}" alt="Missing photo" style="width: 100%" >
