@@ -76,9 +76,9 @@
 
           @auth
                 <div class="container">
-                    @if(session()->has('success'))
-                        <div class=" alert alert-success">
-                            {{ session()->get('success') }}
+                    @if(session()->has('error'))
+                        <div class=" alert alert-danger">
+                            {{ session()->get('error') }}
                         </div>
                     @endif
                     <div class="row">
