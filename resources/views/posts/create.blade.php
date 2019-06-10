@@ -76,7 +76,7 @@
 
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success">
+                    <button class="btn btn-success">
                         {{ isset($post) ? 'Edit post' : 'Create post' }}
                     </button>
                 </div>
